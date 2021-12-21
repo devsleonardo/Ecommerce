@@ -6,8 +6,9 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 
 Execute `ng serve` para um servidor de desenvolvimento. Navegue até `http: // localhost: 4200 /`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
 
-Lembre de execurtar o servidor json-server `http: // localhost: 3000 /`. Execute `json-server --watch banco_de_dados.json`
+Lembre de executar o servidor json-server `http: // localhost: 3000 /`. Execute `json-server --watch banco_de_dados.json`
 
 ## Em breve imagem do projeto.
 
 Em andamento...
+
