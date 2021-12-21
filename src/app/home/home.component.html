@@ -1,0 +1,30 @@
+<div class="container" style="margin-bottom: 150px">
+  <div class="secao">
+    <h3 class="text-center">Destaques do dia!</h3>
+    <h5 class="text-center">Aproveite as super ofertas que separamos para você:</h5>
+  </div>
+
+  <hr />
+
+  <div class="row text-center">
+    <div class="col-sm-4 py-2" *ngFor="let offers of offers">
+      <div class="card py-2">
+        <img class="card-img-top" [src]="offers.imagens" />
+        <div class="card-block">
+          <h4 class="my-2 card-title">{{ offers.titulo }}</h4>
+          <p class="card-text">{{ offers.descricao_oferta }}</p>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="preco">R$ {{ offers.valor }}</p>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-end">
+              <a [routerLink]="['/ofertas', offers.id]" class="mx-2 btn btn-success"
+                >Ver oferta</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
