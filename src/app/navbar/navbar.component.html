@@ -1,26 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a routerLink=""
-    ><img class="" src="../../assets/logo.png" alt="Logo" style="margin-left: 30px"
-  /></a>
-  <button class="navbar-toggler" type="button">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" routerLink=""
-        >Home <span class="sr-only">(Página atual)</span></a
-      >
-      <a class="nav-item nav-link" routerLink="/restaurantes">Restaurantes</a>
-      <a class="nav-item nav-link" routerLink="/diversao">Diversão</a>
-    </div>
-  </div>
-  <div class="">
+<div class="row">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a routerLink=""
-      ><img class="mx-5" src="../../assets/carrinho.png" alt="Carrinho de compras"
+      ><img class="" src="../../assets/logo.png" alt="Logo" style="margin-left: 30px"
     /></a>
-  </div>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar ofertas*" />
-  </form>
-  <button class="mx-2 btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
-</nav>
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink=""
+          >Home <span class="sr-only">(Página atual)</span></a
+        >
+        <a class="nav-item nav-link" routerLink="/restaurantes">Restaurantes</a>
+        <a class="nav-item nav-link" routerLink="/diversao">Diversão</a>
+      </div>
+    </div>
+    <form class="form-inline mx-3">
+      <!--Atributo apartir de uma referencias value ( ex. #searchTerm.value)-->
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Pesquisar ofertas*"
+        #searchTerm
+        (keyup)="search(searchTerm.value)" />
+    </form>
+    <div class="">
+      <a routerLink=""
+        ><img class="mx-5" src="../../assets/carrinho.png" alt="Carrinho de compras"
+      /></a>
+    </div>
+  </nav>
+</div>

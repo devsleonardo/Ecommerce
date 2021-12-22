@@ -23,4 +23,8 @@ export class OffersService {
   public getOffersOfertasId(nav: string, id: any): Observable<string> {
     return this.http.get<string>(`${URL_API}/${nav}?id=${id}`);
   }
+
+  public searchOffers(term: string): Observable<OffersModel[]> {
+    return this.http.get<OffersModel[]>(`${URL_API}/ofertas?descricao_oferta_like=${term}`); //"like" depende da Api
+  }
 }
