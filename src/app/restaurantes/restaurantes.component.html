@@ -1,11 +1,11 @@
-<div class="container card my-2" style="margin-bottom: 20px; margin-bottom: 150px">
+<div class="container card my-4" style="margin-bottom: 20px; margin-bottom: 150px">
   <div class="secao">
     <h3 class="text-center">Rodízios, Buffet, Carnes Especiais, Feijoada e mais!</h3>
     <h5 class="text-center">Conheça as melhores ofertas de restaurantes:</h5>
   </div>
-  <hr class="mb-5" />
+  <hr class=/>
   <div class="row" *ngFor="let offers of offers">
-    <div class="col-md-4">
+    <div class="col-md-4 my-2">
       <img [src]="offers.imagens" />
     </div>
 
@@ -29,7 +29,7 @@
       </div>
 
       <div class="row">
-        <button [routerLink]="['/ofertas', offers.id]" class="btn btn-outline-success">
+        <button [routerLink]="['/ofertas', offers.id]" class="btn btn-outline-primary">
           Ver oferta
         </button>
       </div>

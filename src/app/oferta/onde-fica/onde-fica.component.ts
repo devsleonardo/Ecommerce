@@ -16,6 +16,5 @@ export class OndeFicaComponent implements OnInit {
     this.offersService
       .getOffersOfertasId('onde-fica', this.route.snapshot.params['id']) /*Snapshot*/
       .subscribe((offers: string) => (this.ondeFica = offers));
-    console.log(this.route.snapshot.paramMap.get('id'));
   }
 }

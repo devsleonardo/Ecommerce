@@ -9,13 +9,12 @@ import { ActivatedRoute } from '@angular/router';
   providers: [OffersService], // Trazer um componente Service!
 })
 export class ComoUsarComponent implements OnInit {
-  public comoUsar: string = '';
+  public comoUsar: string;
   constructor(private route: ActivatedRoute, private offersService: OffersService) {}
 
   ngOnInit(): void {
     this.offersService
       .getOffersOfertasId('como-usar', this.route.snapshot.params['id']) /*Snapshot*/
       .subscribe((offers: string) => (this.comoUsar = offers));
-    console.log(this.route.snapshot.paramMap.get('id'));
   }
 }
