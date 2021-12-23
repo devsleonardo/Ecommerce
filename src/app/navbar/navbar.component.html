@@ -18,14 +18,19 @@
     <form class="form-inline mx-3">
       <!--Atributo apartir de uma referencias value ( ex. #searchTerm.value)-->
       <input
-        class="form-control mr-sm-2"
+        class="form-control mr-2"
         type="search"
         placeholder="Pesquisar ofertas..."
         #searchTerm
         (keyup)="search(searchTerm.value)" />
-      <ul class="list-group" style="position: absolute">
-        <li class="list-group-item" *ngFor="let offers of offers2">
-          {{ offers.titulo }}
+      <ul class="list-group" style="z-index: 999">
+        <li
+          class="list-group-item"
+          style="position: relative"
+          *ngFor="let offers of offers | async">
+          <a class="nav-link" [routerLink]="['/ofertas', offers.id]" (click)="clearSearch()"
+            >{{ offers.titulo | description: 15 }}
+          </a>
         </li>
       </ul>
     </form>

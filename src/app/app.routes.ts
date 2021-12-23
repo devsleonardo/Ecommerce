@@ -6,6 +6,7 @@ import { DiversaoComponent } from './diversao/diversao.component';
 import { OfertasComponent } from './oferta/oferta.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -21,4 +22,5 @@ export const ROUTES: Routes = [
       { path: 'onde-fica', component: OndeFicaComponent },
     ],
   },
+  { path: 'compra', component: PurchaseComponent },
 ];

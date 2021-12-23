@@ -9,7 +9,8 @@ import { OffersModel } from '../shared/offers.model';
   providers: [OffersService], // Trazer um componente Service!
 })
 export class RestaurantesComponent implements OnInit {
-  public offers: OffersModel[] = [];
+  public offers: OffersModel[];
+
   constructor(private offersService: OffersService) {}
 
   ngOnInit(): void {

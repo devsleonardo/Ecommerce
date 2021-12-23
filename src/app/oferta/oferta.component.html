@@ -22,7 +22,7 @@
 
         <div class="row">
           <div class="col text-center">
-            <h1>R$ {{ offers.valor }}</h1>
+            <h1>{{ offers.valor | currency: 'BRL' }}</h1>
           </div>
         </div>
 

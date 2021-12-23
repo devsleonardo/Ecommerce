@@ -20,8 +20,12 @@ export class OffersService {
     return this.http.get<OffersModel[]>(`${URL_API}/ofertas?id=${id}`);
   }
 
-  public getOffersOfertasId(nav: string, id: any): Observable<string> {
-    return this.http.get<string>(`${URL_API}/${nav}?id=${id}`);
+  public getOffersOfertasId(id: string): Observable<string> {
+    return this.http.get<string>(`${URL_API}/como-usar?id=${id}`);
+  }
+
+  public getOffersOfertasOndeId(id: string): Observable<string> {
+    return this.http.get<string>(`${URL_API}/onde-fica?id=${id}`);
   }
 
   public searchOffers(term: string): Observable<OffersModel[]> {

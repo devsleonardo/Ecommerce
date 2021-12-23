@@ -15,7 +15,7 @@
           <p class="card-text">{{ offers.descricao_oferta }}</p>
           <div class="row">
             <div class="col-sm-6">
-              <p class="preco">R$ {{ offers.valor }}</p>
+              <p class="preco">{{ offers.valor | currency: 'BRL' }}</p>
             </div>
             <div class="col-sm-6 d-flex justify-content-end">
               <a [routerLink]="['/ofertas', offers.id]" class="m-2 btn btn-primary"
