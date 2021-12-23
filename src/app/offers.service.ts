@@ -25,6 +25,7 @@ export class OffersService {
   }
 
   public searchOffers(term: string): Observable<OffersModel[]> {
-    return this.http.get<OffersModel[]>(`${URL_API}/ofertas?descricao_oferta_like=${term}`); //"like" depende da Api
+    return this.http.get<OffersModel[]>(`${URL_API}/ofertas?descricao_oferta_like=${term}`);
+    //"like" depende da Api
   }
 }

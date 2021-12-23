@@ -20,14 +20,19 @@
       <input
         class="form-control mr-sm-2"
         type="search"
-        placeholder="Pesquisar ofertas*"
+        placeholder="Pesquisar ofertas..."
         #searchTerm
         (keyup)="search(searchTerm.value)" />
+      <ul class="list-group" style="position: absolute">
+        <li class="list-group-item" *ngFor="let offers of offers2">
+          {{ offers.titulo }}
+        </li>
+      </ul>
     </form>
     <div class="">
       <a routerLink=""
-        ><img class="mx-5" src="../../assets/carrinho.png" alt="Carrinho de compras"
-      /></a>
+        ><i class="text-primary fa fa-cart-arrow-down fa-4x mx-5" alt="Carrinho de compras"></i
+      ></a>
     </div>
   </nav>
 </div>
