@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="ordem-compra">
-    <form>
-      <h5>Sua Compra</h5>
+<div class="container" style="margin-bottom: 150px; margin-top: 50px">
+  <div class="ordem-compra card p-2">
+    <form novalidate>
+      <h4>Sua Compra</h4>
       <hr />
 
       <div
@@ -55,7 +55,7 @@
       </div>
 
       <div class="form-row">
-        <div class="form-group col d-flex justify-content-end">
+        <div class="form-group col d-flex justify-content-end my-3">
           <h4>Total do pedido: 61.80</h4>
         </div>
       </div>
@@ -68,32 +68,41 @@
         <div class="form-group col-md-6">
           <input
             type="text"
-            class="form-control is-invalid"
+            class="form-control {{ addressValid ? 'is-valid' : 'is-invalid' }}"
             placeholder="Endereço"
             autocomplete="off"
             minlength="5"
-            required />
+            required
+            [value]="address"
+            #inputAddress
+            (input)="upAddress(inputAddress.value)" />
           <div class="invalid-feedback">Endereço inválido</div>
         </div>
 
         <div class="form-group col-md-2">
           <input
             type="text"
-            class="form-control is-valid"
+            class="form-control is-valid {{ numberValid ? 'is-valid' : 'is-invalid' }}"
             placeholder="Número"
             autocomplete="off"
             minlength="1"
-            required />
-          <br />
+            required
+            [value]="number"
+            #inputNumber
+            (input)="upNumber(inputNumber.value)" />
+
           <small class="form-text text-muted">Ok</small>
         </div>
 
         <div class="form-group col-md-4">
           <input
             type="text"
-            class="form-control"
+            class="form-control {{ complementValid ? 'is-valid' : '' }}"
             placeholder="Complemento"
-            autocomplete="off" />
+            autocomplete="off"
+            [value]="complement"
+            #inputComplement
+            (input)="upComplement(inputComplement.value)" />
         </div>
       </div>
       <br />
@@ -103,10 +112,19 @@
 
       <div class="form-row">
         <div class="form-group col-md-3">
-          <select class="form-control is-invalid">
-            <option>Selecione uma opção</option>
-            <option>Dinheiro</option>
-            <option>Débito</option>
+          <select
+            class="form-control  {{ formMoneyValid ? 'is-valid' : 'is-invalid' }}"
+            #selectFormMoney
+            (change)="upFormMoney(selectFormMoney.value)">
+            <option value="">Selecione uma opção</option>
+            <option
+              value="dinheiro"
+              selected="{{ formMoney == 'dinheiro' ? 'selected' : '' }}">
+              Dinheiro
+            </option>
+            <option value="debito" selected="{{ formMoney == 'debito' ? 'selected' : '' }}">
+              Débito
+            </option>
           </select>
 
           <div class="invalid-feedback">Selecione uma forma de pagamento</div>
