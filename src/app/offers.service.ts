@@ -1,8 +1,9 @@
-import { OffersModel } from './shared/offers.model';
+import { OffersModel } from './shared/model/offers.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { URL_API } from './shared/api.model';
+import { URL_API } from './shared/model/api.model';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class OffersService {
@@ -21,11 +22,15 @@ export class OffersService {
   }
 
   public getOffersOfertasId(id: string): Observable<string> {
-    return this.http.get<string>(`${URL_API}/como-usar?id=${id}`);
+    return this.http
+      .get<any>(`${URL_API}/como-usar?id=${id}`)
+      .pipe(map((res) => res.descricao));
   }
 
   public getOffersOfertasOndeId(id: string): Observable<string> {
-    return this.http.get<string>(`${URL_API}/onde-fica?id=${id}`);
+    return this.http
+      .get<any>(`${URL_API}/onde-fica?id=${id}`)
+      .pipe(map((res) => res.descricao));
   }
 
   public searchOffers(term: string): Observable<OffersModel[]> {

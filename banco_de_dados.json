@@ -61,7 +61,6 @@
       "imagens": "/assets/ofertas/6/img1.jpg"
     }
   ],
-
   "como-usar": [
     {
       "id": 1,
@@ -112,6 +111,36 @@
     {
       "id": 6,
       "descricao": "Estrada Maria das Graças, 12, Salvador - BA "
+    }
+  ],
+  "compra": [
+    {
+      "address": "Rua Adams Filho",
+      "number": "4",
+      "complement": "Casa 54",
+      "formMoney": "dinheiro",
+      "id": 1
+    },
+    {
+      "address": "Rua Padre Nobrega ",
+      "number": "330",
+      "complement": "Casa",
+      "formMoney": "debito",
+      "id": 2
+    },
+    {
+      "address": "Av. Getulio Vargas",
+      "number": "1001",
+      "complement": "Prefeitura",
+      "formMoney": "debito",
+      "id": 3
+    },
+    {
+      "address": "Av. Dorival Candido",
+      "number": "2002",
+      "complement": "",
+      "formMoney": "dinheiro",
+      "id": 4
     }
   ]
 }

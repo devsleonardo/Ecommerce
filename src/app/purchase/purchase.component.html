@@ -1,12 +1,10 @@
 <div class="container" style="margin-bottom: 150px; margin-top: 50px">
-  <div class="ordem-compra card p-2">
+  <div class="ordem-compra card p-2" *ngIf="purchaseId === undefined">
     <form novalidate>
       <h4>Sua Compra</h4>
       <hr />
 
-      <div
-        class="form-row"
-        style="background: #fafafa; padding: 20px; border-bottom: solid 1px #f0f0f0">
+      <div class="form-row p-2 card bg-light my-2">
         <div class="form-group col-sm-1">
           <img src="/assets/ofertas/1/img1.jpg" class="img-fluid" />
         </div>
@@ -29,9 +27,7 @@
         <div class="form-group col-sm-3 d-flex justify-content-end">29.90</div>
       </div>
 
-      <div
-        class="form-row"
-        style="background: #fafafa; padding: 20px; border-bottom: solid 1px #f0f0f0">
+      <div class="form-row p-2 card bg-light">
         <div class="form-group col-sm-1">
           <img src="/assets/ofertas/4/img1.jpg" class="img-fluid" />
         </div>
@@ -68,7 +64,9 @@
         <div class="form-group col-md-6">
           <input
             type="text"
-            class="form-control {{ addressValid ? 'is-valid' : 'is-invalid' }}"
+            class="form-control {{
+              addressStatsPritine ? '' : addressValid ? 'is-valid' : 'is-invalid'
+            }}"
             placeholder="Endereço"
             autocomplete="off"
             minlength="5"
@@ -76,13 +74,23 @@
             [value]="address"
             #inputAddress
             (input)="upAddress(inputAddress.value)" />
-          <div class="invalid-feedback">Endereço inválido</div>
+
+          <div *ngIf="addressStatsPritine == false">
+            <div *ngIf="addressValid; else msgAddressInvalid">
+              <small class="text-success"></small>
+            </div>
+            <ng-template #msgAddressInvalid>
+              <small class="m-2 text-danger">Endereço inválido</small>
+            </ng-template>
+          </div>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="my-2 form-group col-md-2">
           <input
             type="text"
-            class="form-control is-valid {{ numberValid ? 'is-valid' : 'is-invalid' }}"
+            class="form-control {{
+              numberStatsPritine ? '' : numberValid ? 'is-valid' : 'is-invalid'
+            }}"
             placeholder="Número"
             autocomplete="off"
             minlength="1"
@@ -90,19 +98,33 @@
             [value]="number"
             #inputNumber
             (input)="upNumber(inputNumber.value)" />
-
-          <small class="form-text text-muted">Ok</small>
+          <div *ngIf="numberStatsPritine == false">
+            <div *ngIf="numberValid; else msgNumberInvalid">
+              <small class="text-success"></small>
+            </div>
+            <ng-template #msgNumberInvalid>
+              <small class="m-2 text-danger">Número inválido</small>
+            </ng-template>
+          </div>
         </div>
 
         <div class="form-group col-md-4">
           <input
             type="text"
-            class="form-control {{ complementValid ? 'is-valid' : '' }}"
+            class="form-control {{
+              complementStatsPritine ? '' : complementValid ? 'is-valid' : ''
+            }}"
             placeholder="Complemento"
             autocomplete="off"
             [value]="complement"
             #inputComplement
             (input)="upComplement(inputComplement.value)" />
+
+          <div *ngIf="complementStatsPritine == false">
+            <div *ngIf="complementValid">
+              <small class="text-success"></small>
+            </div>
+          </div>
         </div>
       </div>
       <br />
@@ -113,7 +135,9 @@
       <div class="form-row">
         <div class="form-group col-md-3">
           <select
-            class="form-control  {{ formMoneyValid ? 'is-valid' : 'is-invalid' }}"
+            class="form-control  {{
+              formMoneyStatsPritine ? '' : formMoneyValid ? 'is-valid' : 'is-invalid'
+            }}"
             #selectFormMoney
             (change)="upFormMoney(selectFormMoney.value)">
             <option value="">Selecione uma opção</option>
@@ -126,13 +150,28 @@
               Débito
             </option>
           </select>
-
-          <div class="invalid-feedback">Selecione uma forma de pagamento</div>
+          <div *ngIf="formMoneyStatsPritine == false">
+            <div *ngIf="formMoneyValid; else msgFormMoneyInvalid">
+              <small class="text-success"></small>
+            </div>
+            <ng-template #msgFormMoneyInvalid>
+              <small class="m-2 text-danger">Selecione uma forma de pagamento</small>
+            </ng-template>
+          </div>
         </div>
       </div>
 
       <hr />
-      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+      <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        [disabled]="formStatsButton"
+        (click)="readPurchaseUp()">
+        Cofirmar compra
+      </button>
     </form>
+  </div>
+  <div class="ordem-compra" *ngIf="purchaseId !== undefined">
+    <app-purchase-success [purchaseId]="purchaseId"></app-purchase-success>
   </div>
 </div>

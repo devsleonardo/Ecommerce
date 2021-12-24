@@ -1,6 +1,6 @@
 import { of, Observable, Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { OffersService } from 'src/app/offers.service';
-import { OffersModel } from './../shared/offers.model';
+import { OffersModel } from '../shared/model/offers.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

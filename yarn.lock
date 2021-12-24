@@ -5970,6 +5970,11 @@
   dependencies:
     "queue-microtask" "^1.2.2"
 
+"rxjs-compat@^6.6.7":
+  "integrity" "sha512-szN4fK+TqBPOFBcBcsR0g2cmTTUF/vaFEOZNuSdfU8/pGFnNmmn2u8SystYXG1QMrjOPBc6XTKHMVfENDf6hHw=="
+  "resolved" "https://registry.npmjs.org/rxjs-compat/-/rxjs-compat-6.6.7.tgz"
+  "version" "6.6.7"
+
 "rxjs@^6.5.3 || ^7.4.0", "rxjs@^7.2.0", "rxjs@~7.4.0":
   "integrity" "sha512-7SQDi7xeTMCJpqViXh8gL/lebcwlp3d831F05+9B44A4B0WfsEwUQHR64gsH1kvJ+Ep/J9K2+n1hVl1CsGN23w=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-7.4.0.tgz"

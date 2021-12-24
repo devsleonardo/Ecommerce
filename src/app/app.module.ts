@@ -20,6 +20,7 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 //pipe
 import { Description } from './shared/pipe/description.pipe';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 
 registerLocaleData(localePt, 'pt-BR');
 @NgModule({
@@ -35,6 +36,7 @@ registerLocaleData(localePt, 'pt-BR');
     OndeFicaComponent,
     Description,
     PurchaseComponent,
+    PurchaseSuccessComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule.forRoot(ROUTES)],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
