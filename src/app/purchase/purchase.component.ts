@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { OffersModel } from './../shared/model/offers.model';
+import { PurchaseModel } from './../shared/model/purchase.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { PurchaseService } from '../shared/service/purchase.service';
-import { PurchaseModel } from '../shared/model/purchase.model';
 
 @Component({
   selector: 'app-purchase',
@@ -9,100 +11,24 @@ import { PurchaseModel } from '../shared/model/purchase.model';
   providers: [PurchaseService],
 })
 export class PurchaseComponent implements OnInit {
+  @ViewChild('formulario') public formulario: NgForm;
+
+  public purchaseId: number;
+
   constructor(private purchaseService: PurchaseService) {}
 
   ngOnInit(): void {}
 
-  //Variavel
-  public purchase: PurchaseModel[] = [];
-  public purchaseId: number;
+  public confirmarCompra(): void {
+    let purchase: PurchaseModel = new PurchaseModel(
+      this.formulario.value.endereco,
+      this.formulario.value.numero,
+      this.formulario.value.complemento,
+      this.formulario.value.formaPagamento
+    );
 
-  //Pedido
-  public read: PurchaseModel = new PurchaseModel('', '', '', '');
-
-  public address: string = '';
-  public number: string = '';
-  public complement: string = '';
-  public formMoney: string = '';
-
-  //Controle de validação dos campos
-  public addressValid: boolean;
-  public numberValid: boolean;
-  public complementValid: boolean;
-  public formMoneyValid: boolean;
-
-  //Estados Primitivos dos campos (Pristine)
-
-  public addressStatsPritine: boolean = true;
-  public numberStatsPritine: boolean = true;
-  public complementStatsPritine: boolean = true;
-  public formMoneyStatsPritine: boolean = true;
-
-  // Controlar Botão confirmar compra
-
-  public formStatsButton: string = 'disabled ';
-
-  public upAddress(address: string): void {
-    this.address = address;
-    this.addressStatsPritine = false;
-    if (this.address.length > 3) {
-      this.addressValid = true;
-    } else {
-      this.addressValid = false;
-    }
-    this.formActivate();
-  }
-
-  public upNumber(number: string): void {
-    this.number = number;
-    this.numberStatsPritine = false;
-    if (this.number.length > 0) {
-      this.numberValid = true;
-    } else {
-      this.numberValid = false;
-    }
-    this.formActivate();
-  }
-
-  public upComplement(complement: string): void {
-    this.complement = complement;
-    this.complementStatsPritine = false;
-    if (this.complement.length > 0) {
-      this.complementValid = true;
-    }
-    this.formActivate();
-  }
-
-  public upFormMoney(formMoney: string): void {
-    this.formMoney = formMoney;
-    this.formMoneyStatsPritine = false;
-    if (this.formMoney.length > 0) {
-      this.formMoneyValid = true;
-    } else {
-      this.formMoneyValid = false;
-    }
-    this.formActivate();
-  }
-
-  public formActivate(): void {
-    if (
-      this.addressValid === true &&
-      this.numberValid === true &&
-      this.formMoneyValid === true
-    ) {
-      this.formStatsButton = '';
-    } else {
-      this.formStatsButton = 'disabled';
-    }
-  }
-
-  public readPurchaseUp(): void {
-    this.read.address = this.address;
-    this.read.number = this.number;
-    this.read.complement = this.complement;
-    this.read.formMoney = this.formMoney;
-    this.purchaseService.readPurchase(this.read).subscribe((id: number) => {
-      this.purchaseId = id;
+    this.purchaseService.readPurchase(purchase).subscribe((res: number) => {
+      this.purchaseId = res;
     });
   }
 }

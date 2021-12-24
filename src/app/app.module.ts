@@ -4,6 +4,7 @@ import localePt from '@angular/common/locales/pt';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { ROUTES } from './app.routes';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +39,13 @@ registerLocaleData(localePt, 'pt-BR');
     PurchaseComponent,
     PurchaseSuccessComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, RouterModule.forRoot(ROUTES)],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES),
+    FormsModule,
+  ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
