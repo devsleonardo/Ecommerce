@@ -120,6 +120,20 @@
       "complement": "Casa 54",
       "formMoney": "dinheiro",
       "id": 1
+    },
+    {
+      "address": "Rua Padre Nobrega",
+      "number": "330",
+      "complement": "Casa",
+      "formMoney": "debito",
+      "id": 2
+    },
+    {
+      "address": "Av. Getulio Vargas",
+      "number": "1001",
+      "complement": "Prefeitura",
+      "formMoney": "debito",
+      "id": 3
     }
   ]
 }
