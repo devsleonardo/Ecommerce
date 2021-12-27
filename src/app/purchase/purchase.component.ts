@@ -1,7 +1,9 @@
+import { ItemCart } from './../shared/model/itencart.model';
 import { PurchaseModel } from './../shared/model/purchase.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PurchaseService } from '../shared/service/purchase.service';
+import { CartService } from '../shared/service/cart.service';
 
 @Component({
   selector: 'app-purchase',
@@ -11,6 +13,8 @@ import { PurchaseService } from '../shared/service/purchase.service';
 })
 export class PurchaseComponent implements OnInit {
   public purchaseId: number;
+  public itensCarrinho: ItemCart[];
+
   public formulario: FormGroup = new FormGroup({
     endereco: new FormControl(null, [
       Validators.required,
@@ -26,9 +30,11 @@ export class PurchaseComponent implements OnInit {
     formaPagamento: new FormControl(null, [Validators.required]),
   });
 
-  constructor(private purchaseService: PurchaseService) {}
+  constructor(private purchaseService: PurchaseService, public cartService: CartService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.itensCarrinho = this.cartService.exibirItens();
+  }
 
   //Validação de botao atravas do Touched - Tocar na caixa
   public readPurchase(): void {
@@ -48,5 +54,13 @@ export class PurchaseComponent implements OnInit {
         this.purchaseId = res;
       });
     }
+  }
+  public adicionar(item: ItemCart): void {
+    this.cartService.adicionarQuantidade(item);
+    console.log(item.quantidade);
+  }
+
+  public diminuir(item: ItemCart): void {
+    this.cartService.diminuirQuantidade(item);
   }
 }

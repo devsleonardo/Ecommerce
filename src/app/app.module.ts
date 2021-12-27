@@ -18,6 +18,7 @@ import { DiversaoComponent } from './diversao/diversao.component';
 import { OfertasComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
+import { CartService } from './shared/service/cart.service';
 
 //pipe
 import { Description } from './shared/pipe/description.pipe';
@@ -48,7 +49,10 @@ registerLocaleData(localePt, 'pt-BR');
     //FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [
+    CartService, //Acesso a nivel global
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

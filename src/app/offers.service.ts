@@ -22,15 +22,11 @@ export class OffersService {
   }
 
   public getOffersOfertasId(id: string): Observable<string> {
-    return this.http
-      .get<any>(`${URL_API}/como-usar?id=${id}`)
-      .pipe(map((res) => res.descricao));
+    return this.http.get<any>(`${URL_API}/como-usar?id=${id}`).pipe(map((res) => res));
   }
 
   public getOffersOfertasOndeId(id: string): Observable<string> {
-    return this.http
-      .get<any>(`${URL_API}/onde-fica?id=${id}`)
-      .pipe(map((res) => res.descricao));
+    return this.http.get<any>(`${URL_API}/onde-fica?id=${id}`).pipe(map((res) => res));
   }
 
   public searchOffers(term: string): Observable<OffersModel[]> {
