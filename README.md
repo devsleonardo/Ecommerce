@@ -8,7 +8,9 @@ Execute `ng serve` para um servidor de desenvolvimento. Navegue até `http: // l
 
 Lembre de executar o servidor json-server `http: // localhost: 3000 /`. Execute `json-server --watch banco_de_dados.json`
 
-## Em breve imagem do projeto.
+## Imagem
 
 Em andamento...
 
+
+![alt text](https://github.com/devsleonardo/modeloEcommerce/blob/main/src/assets/app2.test.gif)
