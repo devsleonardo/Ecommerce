@@ -184,6 +184,39 @@
         }
       ],
       "id": 5
+    },
+    {
+      "address": "Rua fulado de tal",
+      "number": "3",
+      "complement": "Casa",
+      "formMoney": "debito",
+      "itemCart": [
+        {
+          "id": 1,
+          "img": "/assets/ofertas/1/img1.jpg",
+          "titulo": "Super Burger",
+          "descricao": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "valor": 29.9,
+          "quantidade": 2
+        },
+        {
+          "id": 3,
+          "img": "/assets/ofertas/3/img1.jpg",
+          "titulo": "Pizzas Grandes",
+          "descricao": "Pizza Grande, Mussarela, Marguerita ou outras!",
+          "valor": 21.9,
+          "quantidade": 2
+        },
+        {
+          "id": 2,
+          "img": "/assets/ofertas/2/img1.jpg",
+          "titulo": "Cozinha Mexicana",
+          "descricao": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "quantidade": 1
+        }
+      ],
+      "id": 6
     }
   ]
 }
