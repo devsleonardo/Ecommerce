@@ -44,15 +44,21 @@ export class PurchaseComponent implements OnInit {
       this.formulario.get('complemento').markAsTouched();
       this.formulario.get('formaPagamento').markAsTouched();
     } else {
-      const purchase = new PurchaseModel(
-        this.formulario.value.endereco,
-        this.formulario.value.numero,
-        this.formulario.value.complemento,
-        this.formulario.value.formaPagamento
-      );
-      this.purchaseService.readPurchase(purchase).subscribe((res: number) => {
-        this.purchaseId = res;
-      });
+      if (this.cartService.exibirItens().length === 0) {
+        alert('Você não selecionou nenhum item');
+      } else {
+        const purchase = new PurchaseModel(
+          this.formulario.value.endereco,
+          this.formulario.value.numero,
+          this.formulario.value.complemento,
+          this.formulario.value.formaPagamento,
+          this.cartService.exibirItens()
+        );
+        this.purchaseService.readPurchase(purchase).subscribe((res: number) => {
+          this.purchaseId = res;
+          this.cartService.limparCarrinho();
+        });
+      }
     }
   }
   public adicionar(item: ItemCart): void {

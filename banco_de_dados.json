@@ -134,6 +134,56 @@
       "complement": "Prefeitura",
       "formMoney": "debito",
       "id": 3
+    },
+    {
+      "address": "Av. Sertorio",
+      "number": "164",
+      "complement": "Shopping",
+      "formMoney": "debito",
+      "itemCart": [
+        {
+          "id": 1,
+          "img": "/assets/ofertas/1/img1.jpg",
+          "titulo": "Super Burger",
+          "descricao": "Rodízio de Mini-hambúrger com opção de entrada.",
+          "valor": 29.9,
+          "quantidade": 1
+        },
+        {
+          "id": 6,
+          "img": "/assets/ofertas/6/img1.jpg",
+          "titulo": "Academia de tiro",
+          "descricao": "Sessão de tiro dinâmico com Instrutor, Estande, Alvo e Equipamentos.",
+          "valor": 89.9,
+          "quantidade": 4
+        },
+        {
+          "id": 2,
+          "img": "/assets/ofertas/2/img1.jpg",
+          "titulo": "Cozinha Mexicana",
+          "descricao": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "quantidade": 3
+        }
+      ],
+      "id": 4
+    },
+    {
+      "address": "rua. dos loucos",
+      "number": "55",
+      "complement": "59",
+      "formMoney": "debito",
+      "itemCart": [
+        {
+          "id": 4,
+          "img": "/assets/ofertas/4/img1.jpg",
+          "titulo": "Estância das águas",
+          "descricao": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 5
+        }
+      ],
+      "id": 5
     }
   ]
 }

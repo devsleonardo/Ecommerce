@@ -1,39 +1,46 @@
 <div class="container card" style="margin-top: 50px; margin-bottom: 150px">
   <div class="ordem-compra" *ngIf="purchaseId === undefined">
     <form [formGroup]="formulario" novalidate (ngSubmit)="readPurchase()">
-      <h4>Sua Compra</h4>
+      <h4 class="text-center my-2">Carrinho de compras</h4>
       <hr />
 
-      <div class="form-row card bg-light m-2 p-2" *ngFor="let item of itensCarrinho">
-        <div class="form-group col-sm-1">
-          <img [src]="item.img" class="card" />
-        </div>
-        <div class="form-group col-sm-6">
-          {{ item.titulo }}
-          <br />
-          {{ item.descricao }}
-        </div>
+      <div class="" *ngIf="cartService.exibirItens().length; else carrinhoVazio">
+        <div class="form-row card bg-light m-2 p-2" *ngFor="let item of itensCarrinho">
+          <div class="form-group col-sm-1">
+            <img [src]="item.img" class="card" />
+          </div>
+          <div class="form-group col-sm-6">
+            {{ item.titulo }}
+            <br />
+            {{ item.descricao }}
+          </div>
 
-        <div>
-          <div class="row">
-            <div class="col">
-              <button (click)="diminuir(item)" type="button" class="btn btn-link">-</button>
-              {{ item.quantidade }}
-              <button (click)="adicionar(item)" type="button" class="btn btn-link">+</button>
+          <div>
+            <div class="row">
+              <div class="col">
+                <button (click)="diminuir(item)" type="button" class="btn btn-link">-</button>
+                {{ item.quantidade }}
+                <button (click)="adicionar(item)" type="button" class="btn btn-link">+</button>
+              </div>
             </div>
+          </div>
+
+          <div class="form-group col-sm-3 d-flex justify-content-end">
+            {{ item.quantidade * item.valor | currency: 'BRL' }}
           </div>
         </div>
 
-        <div class="form-group col-sm-3 d-flex justify-content-end">
-          {{ item.quantidade * item.valor | currency: 'BRL' }}
+        <div class="form-row">
+          <div class="form-group col d-flex justify-content-end">
+            <h4>Total do pedido: {{ cartService.totalItemCarrinho() | currency: 'BRL' }}</h4>
+          </div>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group col d-flex justify-content-end">
-          <h4>Total do pedido: {{ cartService.totalItemCarrinho() | currency: 'BRL' }}</h4>
-        </div>
-      </div>
+      <ng-template #carrinhoVazio>
+        <div class="form-row text-center card bg-light m-2 p-2">Seu carrinho está vazio</div>
+      </ng-template>
+
       <br />
 
       <h5>Dados de entrega</h5>

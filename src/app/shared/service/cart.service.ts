@@ -70,4 +70,8 @@ export class CartService {
       }
     }
   }
+
+  public limparCarrinho(): void {
+    this.itens = [];
+  }
 }
